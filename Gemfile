@@ -45,3 +45,6 @@ gem 'rest-client'
 
 # Rspec for testing
 gem 'rspec'
+
+# Pry gem for debugging
+gem 'pry'
