@@ -51,3 +51,6 @@ gem 'pry'
 
 # Some code formatting
 gem 'prettier'
+
+# Gem for ENV Vars
+gem 'dotenv-rails'
