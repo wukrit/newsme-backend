@@ -1,2 +1,1 @@
-class FiltersController < ApplicationController
-end
+class FiltersController < ApplicationController; end

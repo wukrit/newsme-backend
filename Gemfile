@@ -44,7 +44,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rest-client'
 
 # Rspec for testing
-gem 'rspec'
+gem 'rspec-rails'
 
 # Pry gem for debugging
 gem 'pry'
+
+# Some code formatting
+gem 'prettier'

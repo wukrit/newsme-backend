@@ -1,2 +1,1 @@
-class SourcesController < ApplicationController
-end
+class SourcesController < ApplicationController; end

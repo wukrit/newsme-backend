@@ -1,2 +1,1 @@
-class TopicsController < ApplicationController
-end
+class TopicsController < ApplicationController; end
