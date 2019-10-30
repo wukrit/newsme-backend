@@ -12,8 +12,10 @@ Topic.destroy_all
 Source.destroy_all
 
 jdoe = User.create(username: 'jdoe', name: 'John Doe', email: 'jdoe@email.com')
-jdoe1 = User.create(username: 'jdoe1', name: 'John Doe', email: 'jdoe1@email.com')
-jdoe2 = User.create(username: 'jdoe2', name: 'John Doe', email: 'jdoe2@email.com')
+jdoe1 =
+  User.create(username: 'jdoe1', name: 'John Doe', email: 'jdoe1@email.com')
+jdoe2 =
+  User.create(username: 'jdoe2', name: 'John Doe', email: 'jdoe2@email.com')
 
 t1 = Topic.create(title: 'Topic 1')
 t2 = Topic.create(title: 'Topic 2')

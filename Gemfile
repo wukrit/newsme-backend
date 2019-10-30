@@ -43,6 +43,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # RestClient Gem for making HTTP and REST requests
 gem 'rest-client'
 
+# JSON
+gem 'json'
+
 # Rspec for testing
 gem 'rspec-rails'
 
@@ -54,3 +57,6 @@ gem 'prettier'
 
 # Gem for ENV Vars
 gem 'dotenv-rails'
+
+# News-API
+gem "news-api", "~> 0.2.0"

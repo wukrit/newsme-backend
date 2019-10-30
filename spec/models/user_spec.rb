@@ -4,11 +4,13 @@ require 'rails_helper'
 describe User, '#topics' do
   it 'returns a users topics' do
     # setup
-    user = build(:user, username: 'john', email: 'johndoe@email.com', name: "John Doe")
+    user =
+      build(
+        :user,
+        username: 'john', email: 'johndoe@email.com', name: 'John Doe'
+      )
     topic = build(:topic, title: 'Sports')
-    user_topics = Topics.all.select do |topic|
-      topic.user_id == user.id
-    end
+    user_topics = Topics.all.select { |topic| topic.user_id == user.id }
 
     # exercise
     result = user.topics
