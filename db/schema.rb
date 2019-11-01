@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
+<<<<<<< HEAD
   create_table 'articles', force: :cascade do |t|
     t.string 'headline'
     t.string 'body'
@@ -34,6 +35,28 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.bigint 'source_id'
     t.index %w[source_id], name: 'index_filters_on_source_id'
     t.index %w[user_id], name: 'index_filters_on_user_id'
+=======
+  create_table "articles", force: :cascade do |t|
+    t.string "headline"
+    t.string "body"
+    t.string "url"
+    t.string "sentiment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "topic_id"
+    t.bigint "source_id"
+    t.index ["source_id"], name: "index_articles_on_source_id"
+    t.index ["topic_id"], name: "index_articles_on_topic_id"
+  end
+
+  create_table "filters", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "source_id"
+    t.index ["source_id"], name: "index_filters_on_source_id"
+    t.index ["user_id"], name: "index_filters_on_user_id"
+>>>>>>> 41855c2... Created relationships
   end
 
   create_table 'sources', force: :cascade do |t|
@@ -43,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
+<<<<<<< HEAD
   create_table 'subscriptions', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -50,6 +74,15 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.bigint 'topic_id'
     t.index %w[topic_id], name: 'index_subscriptions_on_topic_id'
     t.index %w[user_id], name: 'index_subscriptions_on_user_id'
+=======
+  create_table "subscriptions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.index ["topic_id"], name: "index_subscriptions_on_topic_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+>>>>>>> 41855c2... Created relationships
   end
 
   create_table 'topics', force: :cascade do |t|
@@ -67,10 +100,19 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
+<<<<<<< HEAD
   add_foreign_key 'articles', 'sources'
   add_foreign_key 'articles', 'topics'
   add_foreign_key 'filters', 'sources'
   add_foreign_key 'filters', 'users'
   add_foreign_key 'subscriptions', 'topics'
   add_foreign_key 'subscriptions', 'users'
+=======
+  add_foreign_key "articles", "sources"
+  add_foreign_key "articles", "topics"
+  add_foreign_key "filters", "sources"
+  add_foreign_key "filters", "users"
+  add_foreign_key "subscriptions", "topics"
+  add_foreign_key "subscriptions", "users"
+>>>>>>> 41855c2... Created relationships
 end

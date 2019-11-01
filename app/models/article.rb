@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+<<<<<<< HEAD
   belongs_to :topic
   belongs_to :source
 
@@ -11,4 +12,8 @@ class Article < ApplicationRecord
         category: category, language: 'en', country: 'us'
       )
   end
+=======
+    belongs_to :topic
+    belongs_to :source
+>>>>>>> 41855c2... Created relationships
 end

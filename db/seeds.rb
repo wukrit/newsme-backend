@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+<<<<<<< HEAD
 Filter.destroy_all
 Subscription.destroy_all
 User.destroy_all
@@ -31,3 +32,41 @@ Filter.create(user: jdoe, source: s1)
 Subscription.create(user: jdoe, topic: t1)
 Subscription.create(user: jdoe, topic: t2)
 Subscription.create(user: jdoe, topic: t3)
+=======
+User.destroy_all
+Article.destroy_all
+Subscription.destroy_all
+Filter.destroy_all
+Topic.destroy_all
+# Source.destroy_all
+
+u1 = User.create(
+    name: 'John Doe',
+    email: 'jdoe@email.com',
+    username: 'jdoe'
+)
+
+t1 = Topic.create(
+    title: 'Test'
+)
+
+s1 = Source.create(
+    name: 'Test Source',
+    url: 'Test URL'
+)
+
+s2 = Source.create(
+    name: 'Second Test Source',
+    url: 'Second Test URL'
+)
+
+sub1 = Subscription.create(
+    user: u1,
+    topic: t1,
+)
+
+fil1 = Filter.create(
+    user: u1,
+    source: s2,
+)
+>>>>>>> 41855c2... Created relationships
