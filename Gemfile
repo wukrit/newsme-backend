@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.4'
+ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -40,23 +40,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# RestClient Gem for making HTTP and REST requests
-gem 'rest-client'
+# Gem to manage ENV vars
+gem 'dotenv'
 
-# JSON
-gem 'json'
+# News API Gem
+gem 'news-api'
 
-# Rspec for testing
-gem 'rspec-rails'
-
-# Pry gem for debugging
-gem 'pry'
-
-# Some code formatting
-gem 'prettier'
-
-# Gem for ENV Vars
-gem 'dotenv-rails'
-
-# News-API
-gem "news-api", "~> 0.2.0"
+# Aylien Text Analysis
+gem "aylien_text_api", "~> 1.0"

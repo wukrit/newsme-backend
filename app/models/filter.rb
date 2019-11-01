@@ -1,4 +1,4 @@
 class Filter < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  belongs_to :source, dependent: :destroy
+    belongs_to :user
+    belongs_to :news_source
 end

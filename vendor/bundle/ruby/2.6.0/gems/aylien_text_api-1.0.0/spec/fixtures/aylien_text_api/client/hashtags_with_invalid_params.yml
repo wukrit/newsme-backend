@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.aylien.com/api/v1/hashtags
+    body:
+      encoding: US-ASCII
+      string: wrong_param=The+Google+Cast+SDK+is+simple+to+integrate+because+there%E2%80%99s+no%0A++++++need+to+write+a+new+app.+Just+incorporate+the+SDK+into+your+existing%0A++++++mobile+and+web+apps+to+bring+your+content+to+the+TV.+You+are+in%0A++++++control+of+how+and+when+you+develop+and+publish+your+cast-ready%0A++++++apps+through+the+Google+Cast+developer+console.%0A++++++The+SDK+is+available+on+Android+and+iOS+as+well+as+on+Chrome%0A++++++through+the+Google+Cast+browser+extension.
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Aylien Text API Ruby Gem 0.6.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Aylien-Textapi-Application-Id:
+      - "<PASSWORD>"
+      X-Aylien-Textapi-Application-Key:
+      - "<PASSWORD>"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - openresty/1.9.3.2
+      Date:
+      - Thu, 28 Apr 2016 10:37:35 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '219'
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit:
+      - '207000'
+      X-Ratelimit-Remaining:
+      - '173981'
+      X-Ratelimit-Reset:
+      - '1461888000'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": "requirement failed: either text or url is required",
+          "errors": [{
+            "reason": "required",
+            "message": "either text or url is required",
+            "locationType": "parameter",
+            "location": "text"
+          }]
+        }
+    http_version: 
+  recorded_at: Thu, 28 Apr 2016 10:37:35 GMT
+recorded_with: VCR 2.9.3

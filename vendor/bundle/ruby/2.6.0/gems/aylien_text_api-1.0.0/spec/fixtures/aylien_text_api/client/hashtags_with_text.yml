@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.aylien.com/api/v1/hashtags
+    body:
+      encoding: US-ASCII
+      string: text=The+Google+Cast+SDK+is+simple+to+integrate+because+there%E2%80%99s+no%0A++++++need+to+write+a+new+app.+Just+incorporate+the+SDK+into+your+existing%0A++++++mobile+and+web+apps+to+bring+your+content+to+the+TV.+You+are+in%0A++++++control+of+how+and+when+you+develop+and+publish+your+cast-ready%0A++++++apps+through+the+Google+Cast+developer+console.%0A++++++The+SDK+is+available+on+Android+and+iOS+as+well+as+on+Chrome%0A++++++through+the+Google+Cast+browser+extension.
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Aylien Text API Ruby Gem 0.6.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Aylien-Textapi-Application-Id:
+      - "<PASSWORD>"
+      X-Aylien-Textapi-Application-Key:
+      - "<PASSWORD>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.3.2
+      Date:
+      - Thu, 28 Apr 2016 10:37:34 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '595'
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit:
+      - '207000'
+      X-Ratelimit-Remaining:
+      - '173982'
+      X-Ratelimit-Reset:
+      - '1461888000'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJ0ZXh0IjogIlRoZSBHb29nbGUgQ2FzdCBTREsgaXMgc2ltcGxlIHRv
+        IGludGVncmF0ZSBiZWNhdXNlIHRoZXJl4oCZcyBub1xuICAgICAgbmVlZCB0
+        byB3cml0ZSBhIG5ldyBhcHAuIEp1c3QgaW5jb3Jwb3JhdGUgdGhlIFNESyBp
+        bnRvIHlvdXIgZXhpc3RpbmdcbiAgICAgIG1vYmlsZSBhbmQgd2ViIGFwcHMg
+        dG8gYnJpbmcgeW91ciBjb250ZW50IHRvIHRoZSBUVi4gWW91IGFyZSBpblxu
+        ICAgICAgY29udHJvbCBvZiBob3cgYW5kIHdoZW4geW91IGRldmVsb3AgYW5k
+        IHB1Ymxpc2ggeW91ciBjYXN0LXJlYWR5XG4gICAgICBhcHBzIHRocm91Z2gg
+        dGhlIEdvb2dsZSBDYXN0IGRldmVsb3BlciBjb25zb2xlLlxuICAgICAgVGhl
+        IFNESyBpcyBhdmFpbGFibGUgb24gQW5kcm9pZCBhbmQgaU9TIGFzIHdlbGwg
+        YXMgb24gQ2hyb21lXG4gICAgICB0aHJvdWdoIHRoZSBHb29nbGUgQ2FzdCBi
+        cm93c2VyIGV4dGVuc2lvbi4iLAogICJsYW5ndWFnZSI6ICJlbiIsCiAgImhh
+        c2h0YWdzIjogWyIjU0RLIiwgIiNTb2Z0d2FyZURldmVsb3BtZW50S2l0Iiwg
+        IiNDaHJvbWVjYXN0IiwgIiNXZWJBcHBsaWNhdGlvbiIsICIjQW5kcm9pZCIs
+        ICIjSU9TIl0KfQ==
+    http_version: 
+  recorded_at: Thu, 28 Apr 2016 10:37:34 GMT
+recorded_with: VCR 2.9.3

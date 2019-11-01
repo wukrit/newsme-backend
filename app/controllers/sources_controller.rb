@@ -1,1 +1,0 @@
-class SourcesController < ApplicationController; end

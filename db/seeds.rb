@@ -5,29 +5,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Filter.destroy_all
-Subscription.destroy_all
 User.destroy_all
+Article.destroy_all
+Subscription.destroy_all
+Filter.destroy_all
 Topic.destroy_all
-Source.destroy_all
+NewsSource.destroy_all
 
-jdoe = User.create(username: 'jdoe', name: 'John Doe', email: 'jdoe@email.com')
-jdoe1 =
-  User.create(username: 'jdoe1', name: 'John Doe', email: 'jdoe1@email.com')
-jdoe2 =
-  User.create(username: 'jdoe2', name: 'John Doe', email: 'jdoe2@email.com')
+u1 = User.create(
+    name: 'John Doe',
+    email: 'jdoe@email.com',
+    username: 'jdoe'
+)
 
-t1 = Topic.create(title: 'Topic 1')
-t2 = Topic.create(title: 'Topic 2')
-t3 = Topic.create(title: 'Topic 3')
-t4 = Topic.create(title: 'Topic 4')
-t5 = Topic.create(title: 'Topic 5')
+t1 = Topic.create(
+    title: 'Test'
+)
 
-s1 = Source.create(name: 'Source 1')
-s2 = Source.create(name: 'Source 2')
+s1 = NewsSource.create(
+    name: 'Test Source',
+    url: 'Test URL'
+)
 
-Filter.create(user: jdoe, source: s1)
+s2 = NewsSource.create(
+    name: 'Second Test Source',
+    url: 'Second Test URL'
+)
 
-Subscription.create(user: jdoe, topic: t1)
-Subscription.create(user: jdoe, topic: t2)
-Subscription.create(user: jdoe, topic: t3)
+sub1 = Subscription.create(
+    user: u1,
+    topic: t1,
+)
+
+fil1 = Filter.create(
+    user: u1,
+    news_source: s2,
+)

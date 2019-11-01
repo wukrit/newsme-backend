@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.aylien.com/api/v1/concepts
+    body:
+      encoding: US-ASCII
+      string: text=Barack+Hussein+Obama+II+is+the+44th+and+current%0A++++++President+of+the+United+States%2C+and+the+first%0A++++++African+American+to+hold+the+office.
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Aylien Text API Ruby Gem 0.6.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Aylien-Textapi-Application-Id:
+      - "<PASSWORD>"
+      X-Aylien-Textapi-Application-Key:
+      - "<PASSWORD>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.3.2
+      Date:
+      - Thu, 28 Apr 2016 10:36:37 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1171'
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit:
+      - '207000'
+      X-Ratelimit-Remaining:
+      - '174095'
+      X-Ratelimit-Reset:
+      - '1461888000'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "text": "Barack Hussein Obama II is the 44th and current\n      President of the United States, and the first\n      African American to hold the office.",
+          "language": "en",
+          "concepts": {
+            "http://dbpedia.org/resource/Race_and_ethnicity_in_the_United_States_Census": {
+              "surfaceForms": [{
+                "string": "African American",
+                "score": 0.8779984484117411,
+                "offset": 106
+              }],
+              "types": [""],
+              "support": 300943
+            },
+            "http://dbpedia.org/resource/Barack_Obama": {
+              "surfaceForms": [{
+                "string": "Barack Hussein Obama II",
+                "score": 1.0,
+                "offset": 0
+              }],
+              "types": ["http://dbpedia.org/ontology/Agent", "http://www.wikidata.org/entity/Q215627", "http://schema.org/Person", "http://xmlns.com/foaf/0.1/Person", "http://www.wikidata.org/entity/Q5", "http://dbpedia.org/ontology/Person"],
+              "support": 18146
+            },
+            "http://dbpedia.org/resource/United_States": {
+              "surfaceForms": [{
+                "string": "United States",
+                "score": 0.9998811846886878,
+                "offset": 71
+              }],
+              "types": ["http://dbpedia.org/ontology/Country"],
+              "support": 563058
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 28 Apr 2016 10:36:37 GMT
+recorded_with: VCR 2.9.3
