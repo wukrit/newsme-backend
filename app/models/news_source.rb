@@ -1,4 +1,4 @@
-class Source < ApplicationRecord
+class NewsSource < ApplicationRecord
     has_many :filters
     has_many :users, through: :filters
     has_many :articles

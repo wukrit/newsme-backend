@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :news_sources
   resources :subscriptions
   resources :filters
-  resources :sources
   resources :articles
   resources :topics
   resources :users

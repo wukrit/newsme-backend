@@ -10,7 +10,7 @@ Article.destroy_all
 Subscription.destroy_all
 Filter.destroy_all
 Topic.destroy_all
-# Source.destroy_all
+NewsSource.destroy_all
 
 u1 = User.create(
     name: 'John Doe',
@@ -22,12 +22,12 @@ t1 = Topic.create(
     title: 'Test'
 )
 
-s1 = Source.create(
+s1 = NewsSource.create(
     name: 'Test Source',
     url: 'Test URL'
 )
 
-s2 = Source.create(
+s2 = NewsSource.create(
     name: 'Second Test Source',
     url: 'Second Test URL'
 )
@@ -39,5 +39,5 @@ sub1 = Subscription.create(
 
 fil1 = Filter.create(
     user: u1,
-    source: s2,
+    news_source: s2,
 )
