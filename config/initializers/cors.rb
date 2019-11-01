@@ -10,6 +10,11 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins '*'
 
     resource '*',
+<<<<<<< HEAD
              headers: :any, methods: %i[get post put patch delete options head]
+=======
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+>>>>>>> 0a98988... added env files
   end
 end
