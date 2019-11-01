@@ -32,7 +32,8 @@ class Article < ApplicationRecord
   require 'aylien_text_api'
 
   def self.get_top_headlines(category)
-    newsapi = News.new(ENV['news_api_key'])
+    news_api_key= Rails.application.credentials.news_api_key
+    newsapi = News.new(news_api_key)
     top_headlines =
       newsapi.get_top_headlines(
         category: category, language: 'en', country: 'us'
@@ -43,12 +44,13 @@ class Article < ApplicationRecord
 >>>>>>> 27f5bf6... added headline helper
 =======
   def self.summarize(url)
+    text_api_key= Rails.application.credentials.text_api_key
+    text_api_id= Rails.application.credentials.text_api_id
     textapi = AylienTextApi::Client.new(
-      app_id: ENV['text_api_id'], app_key: ENV['text_api_key']
+      app_id: text_api_id, app_key: text_api_key
     )
-    # byebug
     result = textapi.summarize url: url, sentences_number: 5
-    result
+    result[:sentences]
   end
 
 >>>>>>> c820d22... bundled
