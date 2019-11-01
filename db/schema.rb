@@ -22,19 +22,19 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.string "sentiment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "topics_id"
-    t.bigint "sources_id"
-    t.index ["sources_id"], name: "index_articles_on_sources_id"
-    t.index ["topics_id"], name: "index_articles_on_topics_id"
+    t.bigint "topic_id"
+    t.bigint "source_id"
+    t.index ["source_id"], name: "index_articles_on_source_id"
+    t.index ["topic_id"], name: "index_articles_on_topic_id"
   end
 
   create_table "filters", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
-    t.bigint "sources_id"
-    t.index ["sources_id"], name: "index_filters_on_sources_id"
-    t.index ["users_id"], name: "index_filters_on_users_id"
+    t.bigint "user_id"
+    t.bigint "source_id"
+    t.index ["source_id"], name: "index_filters_on_source_id"
+    t.index ["user_id"], name: "index_filters_on_user_id"
   end
 
   create_table "sources", force: :cascade do |t|
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
-    t.bigint "topics_id"
-    t.index ["topics_id"], name: "index_subscriptions_on_topics_id"
-    t.index ["users_id"], name: "index_subscriptions_on_users_id"
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.index ["topic_id"], name: "index_subscriptions_on_topic_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "articles", "sources", column: "sources_id"
-  add_foreign_key "articles", "topics", column: "topics_id"
-  add_foreign_key "filters", "sources", column: "sources_id"
-  add_foreign_key "filters", "users", column: "users_id"
-  add_foreign_key "subscriptions", "topics", column: "topics_id"
-  add_foreign_key "subscriptions", "users", column: "users_id"
+  add_foreign_key "articles", "sources"
+  add_foreign_key "articles", "topics"
+  add_foreign_key "filters", "sources"
+  add_foreign_key "filters", "users"
+  add_foreign_key "subscriptions", "topics"
+  add_foreign_key "subscriptions", "users"
 end
