@@ -45,3 +45,6 @@ gem 'dotenv'
 
 # News API Gem
 gem 'news-api'
+
+# Aylien Text Analysis
+gem "aylien_text_api", "~> 1.0"
