@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:index, :create, :destroy]
   resources :filters, only: [:index, :create, :destroy]
   resources :articles, only: [:index, :show]
-  resources :topics, only: [:index, :show]
   resources :users, only: [:create, :update, :destroy]
 
   post '/login', to: 'login#login'
