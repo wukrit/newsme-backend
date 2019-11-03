@@ -49,3 +49,5 @@ gem 'news-api'
 
 # Aylien Text Analysis
 gem "aylien_text_api", "~> 1.0"
+
+gem "prettier", "~> 0.15.0"
