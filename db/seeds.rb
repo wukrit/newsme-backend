@@ -72,16 +72,16 @@ fil1 = Filter.create(
 >>>>>>> 41855c2... Created relationships
 =======
 categories.each do |category|
-    if !Topic.pluck(:title).include?(titlecase(category))
-        Topic.create(title: titlecase(category))
+    if !Topic.pluck(:title).include?(category.titleize)
+        Topic.create(title: category.titleize)
     end
-    topic = Topic.find_by(title: titlecase(category))
+    topic = Topic.find_by(title: category.titleize)
     json = Article.get_top_headlines(category)
     json.each do |article|
         if article.id != nil && !NewsSource.pluck(:name).include?(article.name)
-            Source.create(name: article.name)
+            NewsSource.create(name: article.name)
             Article.creator(article, topic)
-        elsif article.id != nil
+        elsif article.id != nil && NewsSource.pluck(:name).include?(article.name)
             Article.creator(article, topic)
         end
     end
