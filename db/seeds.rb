@@ -43,6 +43,7 @@ NewsSource.destroy_all
 =======
 >>>>>>> e443966... updated seeds file
 
+<<<<<<< HEAD
 categories = ['business', 'entertainment', 'health', 'science', 'sports', 'technology', 'general']
 
 <<<<<<< HEAD
@@ -87,3 +88,6 @@ categories.each do |category|
     end
 end
 >>>>>>> e443966... updated seeds file
+=======
+Topic.run_daily
+>>>>>>> 9972055... Added serve method for topic instances

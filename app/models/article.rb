@@ -28,6 +28,8 @@ class Article < ApplicationRecord
   belongs_to :news_source
 >>>>>>> c820d22... bundled
 
+  validates :headline, presence: true, uniqueness: true
+
   require 'news-api'
   require 'aylien_text_api'
   require 'date'
@@ -44,17 +46,27 @@ class Article < ApplicationRecord
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 27f5bf6... added headline helper
 =======
   def self.summarize(url)
+=======
+  def summarize
+>>>>>>> 9972055... Added serve method for topic instances
     text_api_key= Rails.application.credentials.text_api_key
     text_api_id= Rails.application.credentials.text_api_id
     textapi = AylienTextApi::Client.new(
       app_id: text_api_id,
       app_key: text_api_key
     )
-    result = textapi.summarize url: url, sentences_number: 5
-    result[:sentences]
+    result = textapi.summarize url: self.url, sentences_number: 5
+    if result[:sentences].count > 2
+      self.update(body: result[:sentences].join(" "))
+      return true
+    else
+      puts "Could not summarize properly from #{self.url}"
+      return false
+    end
   end
 
 <<<<<<< HEAD
