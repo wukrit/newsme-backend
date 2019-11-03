@@ -36,10 +36,10 @@ class Article < ApplicationRecord
   def self.creator(article_obj, topic)
     str_date = Article.get_date(article_obj)
     Article.create(
-        title: article_obj.title,
+        headline: article_obj.title,
         url: article_obj.url,
         date: str_date,
-        source: Source.find_by(name: article_obj.name),
+        news_source: NewsSource.find_by(name: article_obj.name),
         topic: topic
     )
   end
