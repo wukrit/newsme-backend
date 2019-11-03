@@ -21,10 +21,15 @@ Rails.application.routes.draw do
   resources :filters, only: [:index, :create, :destroy]
   resources :articles, only: [:index, :show]
   resources :topics, only: [:index, :show]
-  resources :users, only: [:show, :create, :update, :destroy]
+  resources :users, only: [:create, :update, :destroy]
 
   post '/login', to: 'login#login'
   get '/login', to: 'login#persist'
+<<<<<<< HEAD
 >>>>>>> cae14c1... updated routes, added jwt
+=======
+
+  get '/topics/serve', to: 'topics#serve'
+>>>>>>> 623a263... added serve route and method for topics controller
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
