@@ -108,6 +108,7 @@ GEM
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
+    prettier (0.15.0)
     puma (3.12.1)
     rack (2.0.7)
     rack-cors (1.0.3)
@@ -184,6 +185,7 @@ DEPENDENCIES
   news-api
 >>>>>>> 0a98988... added env files
   pg (>= 0.18, < 2.0)
+  prettier (~> 0.15.0)
   puma (~> 3.11)
   rack-cors
   rails (~> 6.0.0)

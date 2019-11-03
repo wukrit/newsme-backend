@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 <<<<<<< HEAD
+<<<<<<< HEAD
 Filter.destroy_all
 Subscription.destroy_all
 User.destroy_all
@@ -39,13 +40,12 @@ Subscription.destroy_all
 Filter.destroy_all
 Topic.destroy_all
 NewsSource.destroy_all
+=======
+>>>>>>> e443966... updated seeds file
 
-u1 = User.create(
-    name: 'John Doe',
-    email: 'jdoe@email.com',
-    username: 'jdoe'
-)
+categories = ['business', 'entertainment', 'health', 'science', 'sports', 'technology', 'general']
 
+<<<<<<< HEAD
 t1 = Topic.create(
     title: 'Test'
 )
@@ -70,3 +70,20 @@ fil1 = Filter.create(
     news_source: s2,
 )
 >>>>>>> 41855c2... Created relationships
+=======
+categories.each do |category|
+    if !Topic.pluck(:title).include?(titlecase(category))
+        Topic.create(title: titlecase(category))
+    end
+    topic = Topic.find_by(title: titlecase(category))
+    json = Article.get_top_headlines(category)
+    json.each do |article|
+        if article.id != nil && !NewsSource.pluck(:name).include?(article.name)
+            Source.create(name: article.name)
+            Article.creator(article, topic)
+        elsif article.id != nil
+            Article.creator(article, topic)
+        end
+    end
+end
+>>>>>>> e443966... updated seeds file

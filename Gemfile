@@ -74,4 +74,9 @@ gem 'news-api'
 
 # Aylien Text Analysis
 gem "aylien_text_api", "~> 1.0"
+<<<<<<< HEAD
 >>>>>>> c820d22... bundled
+=======
+
+gem "prettier", "~> 0.15.0"
+>>>>>>> e443966... updated seeds file
