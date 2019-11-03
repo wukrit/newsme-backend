@@ -30,7 +30,12 @@ class LoginController < ApplicationController
                 { algorithm: "HS256"}
             )
             user = User.find(decoded_token[0]["user_id"])
-            render json: user
+            render json: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                username: user.username
+            }
         else
             render json: { errors: "No Auth token" }
         end
