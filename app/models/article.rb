@@ -61,15 +61,15 @@ class Article < ApplicationRecord
 >>>>>>> c820d22... bundled
 =======
   def self.get_date(article_obj)
-    date = Date.new(article_obj.publishedAt)
-    byebug
+    date = Date.parse(article_obj.publishedAt)
+    date.to_s
   end
 
   def self.creator(article_obj, topic)
     str_date = Article.get_date(article_obj)
     Article.create(
         title: article_obj.title,
-        url: article_obj.url
+        url: article_obj.url,
         date: str_date,
         source: Source.find_by(name: article_obj.name),
         topic: topic
