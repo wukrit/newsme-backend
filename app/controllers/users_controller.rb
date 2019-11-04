@@ -11,6 +11,26 @@ class UsersController < ApplicationController
         end
     end
 
+    def feed
+        token = request.headers["Authorization"]
+        if token
+            decoded_token = JWT.decode(
+                token,
+                secret,
+                true,
+                { algorithm: "HS256"}
+            )
+            user = User.find(decoded_token[0]["user_id"])
+            if user
+                render json: user.serve
+            else
+                render json: { errors: "Invalid Auth Token" }
+            end
+        else
+            render json: { errors: "No Auth token" }
+        end
+    end
+
 private
 
     def user_params
