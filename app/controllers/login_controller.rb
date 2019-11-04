@@ -11,18 +11,17 @@ class LoginController < ApplicationController
                     name: user.name,
                     email: user.email,
                     username: user.username
-                }
+                },
                 token: token
             }
         else
-            render json: { errors: user.errors.full_messages }
+            render json: { errors: "that didn't match any users" }
         end
     end
 
     def persist
-        auth = request.headers["Authorization"]
-        if auth
-            token = auth.split(" ")[1]
+        token = request.headers["Authorization"]
+        if token
             decoded_token = JWT.decode(
                 token,
                 secret,
@@ -31,10 +30,13 @@ class LoginController < ApplicationController
             )
             user = User.find(decoded_token[0]["user_id"])
             render json: {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                username: user.username
+                user: {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    username: user.username
+                },
+                token: token
             }
         else
             render json: { errors: "No Auth token" }
@@ -44,7 +46,7 @@ class LoginController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password)
+        params.permit(:username, :email, :password)
     end
 
 end

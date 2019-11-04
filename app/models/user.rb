@@ -28,5 +28,17 @@ class User < ApplicationRecord
 
     # validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
+<<<<<<< HEAD
 >>>>>>> 9ff699b... added secure password created login controller
+=======
+
+    def serve_feed
+        feed = {}
+        self.topics.each do |topic|
+            feed[:topic.name] = topic.serve
+        end
+        feed
+    end
+
+>>>>>>> 0dfbceb... added serve feed for users
 end
