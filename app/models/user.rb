@@ -9,10 +9,10 @@ class User < ApplicationRecord
     # validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
 
-    def serve_feed
+    def serve
         feed = {}
         self.topics.each do |topic|
-            feed[:topic.name] = topic.serve
+            feed["#{topic.title}"] = topic.serve
         end
         feed
     end
