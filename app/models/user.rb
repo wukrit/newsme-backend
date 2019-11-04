@@ -32,10 +32,10 @@ class User < ApplicationRecord
 >>>>>>> 9ff699b... added secure password created login controller
 =======
 
-    def serve_feed
+    def serve
         feed = {}
         self.topics.each do |topic|
-            feed[:topic.name] = topic.serve
+            feed["#{topic.title}"] = topic.serve
         end
         feed
     end
