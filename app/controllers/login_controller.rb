@@ -1,7 +1,7 @@
 class LoginController < ApplicationController
 
     def login
-        user = User.find_by(username: user_params[:username])
+        user = User.find_by(email: user_params[:email])
         if user && user.authenticate(user_params[:password])
             payload = { user_id: user.id }
             token = JWT.encode(payload, secret, 'HS256')
