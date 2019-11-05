@@ -106,7 +106,6 @@ class UsersController < ApplicationController
             )
             user = User.find(decoded_token[0]["user_id"])
             user.destroy
-            render json: {}
         end
     end
 
