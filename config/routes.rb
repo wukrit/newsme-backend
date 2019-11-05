@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:index, :create, :destroy]
   resources :filters, only: [:index, :create, :destroy]
   resources :articles, only: [:index, :show]
-  resources :users, only: [:create, :update, :destroy]
+  resources :users, only: [:create, :destroy]
 
   post '/login', to: 'login#login'
   get '/login', to: 'login#persist'
@@ -45,6 +45,10 @@ Rails.application.routes.draw do
 >>>>>>> af47ad2... added feed route for users
 =======
   get '/users/subscriptions', to: 'users#subscriptions'
+<<<<<<< HEAD
 >>>>>>> bbdbf1c... added subscriptions route for users
+=======
+  patch '/users/edit', to: 'users#edit'
+>>>>>>> 0ec5a6b... implemented edit user method
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
