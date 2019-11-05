@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :news_sources, only: [:index]
+  resources :topics, only: [:index]
   resources :subscriptions, only: [:index, :create, :destroy]
   resources :filters, only: [:index, :create, :destroy]
   resources :articles, only: [:index, :show]
