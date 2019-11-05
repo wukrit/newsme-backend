@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :subscriptions, only: %i[index show create destroy]
   resources :filters, only: %i[index show create destroy]
   resources :sources, only: %i[index show]
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
 =======
   resources :news_sources, only: [:index, :show]
+=======
+  resources :news_sources, only: [:index]
+>>>>>>> 4593c08... removed extra news_source route
   resources :subscriptions, only: [:index, :create, :destroy]
   resources :filters, only: [:index, :create, :destroy]
   resources :articles, only: [:index, :show]
