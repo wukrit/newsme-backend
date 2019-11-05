@@ -41,6 +41,10 @@ Rails.application.routes.draw do
 >>>>>>> 623a263... added serve route and method for topics controller
 =======
   get '/users/feed', to: 'users#feed'
+<<<<<<< HEAD
 >>>>>>> af47ad2... added feed route for users
+=======
+  get '/users/subscriptions', to: 'users#subscriptions'
+>>>>>>> bbdbf1c... added subscriptions route for users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
