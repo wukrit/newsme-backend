@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   resources :news_sources, only: [:index, :show]
 =======
   resources :news_sources, only: [:index]
+<<<<<<< HEAD
 >>>>>>> 4593c08... removed extra news_source route
+=======
+  resources :topics, only: [:index]
+>>>>>>> 915a4ab... created index for sources and topics
   resources :subscriptions, only: [:index, :create, :destroy]
   resources :filters, only: [:index, :create, :destroy]
   resources :articles, only: [:index, :show]

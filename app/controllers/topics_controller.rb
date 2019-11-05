@@ -1,5 +1,10 @@
 class TopicsController < ApplicationController
 
+    def index
+        topics = Topic.all
+        render json: topics
+    end
+
     def serve
         topic = Topic.find_by(title: params[:topic].titleize)
         # byebug
