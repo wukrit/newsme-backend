@@ -74,9 +74,12 @@ class UsersController < ApplicationController
             user = User.find(decoded_token[0]["user_id"])
             name = user.name == user_params[:name] ? user.name : user_params[:name]
             email = user.email == user_params[:email] ? user.email : user_params[:email]
+            user.update(name: name, email: email)
             params[:subs].each do |sub|
-                topic = Topic.find_by(title: sub)
-                if !user.subscriptions.pluck(:topic_id).include?(topic.id)
+                topic = Topic.find_by(title: sub[0])
+                if user.subscriptions.pluck(:topic_id).include?(topic.id) && sub[1] == false
+                    user.subscriptions.find_by(topic_id: topic.id).destroy
+                elsif !user.subscriptions.pluck(:topic_id).include?(topic.id) && sub[1] == true
                     Subscription.create(user: user, topic: topic)
                 end
             end
