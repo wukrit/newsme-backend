@@ -95,7 +95,7 @@ class UsersController < ApplicationController
         end
     end
 
-    def destroy
+    def delete_account
         token = request.headers["Authorization"]
         if token
             decoded_token = JWT.decode(
@@ -106,6 +106,7 @@ class UsersController < ApplicationController
             )
             user = User.find(decoded_token[0]["user_id"])
             user.destroy
+            render json: {}
         end
     end
 
