@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   get '/topics/serve', to: 'topics#serve'
   get '/users/feed', to: 'users#feed'
+  get '/users/subscriptions', to: 'users#subscriptions'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

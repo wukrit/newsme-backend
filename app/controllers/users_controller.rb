@@ -48,6 +48,20 @@ class UsersController < ApplicationController
         end
     end
 
+    def subscriptions
+        token = request.headers["Authorization"]
+        if token
+            decoded_token = JWT.decode(
+                token,
+                secret,
+                true,
+                { algorithm: "HS256"}
+            )
+            user = User.find(decoded_token[0]["user_id"])
+            render json: user.subscriptions
+        end
+    end
+
 private
 
     def user_params
