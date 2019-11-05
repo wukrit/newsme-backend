@@ -62,10 +62,40 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        token = request.headers["Authorization"]
+        if token
+            decoded_token = JWT.decode(
+                token,
+                secret,
+                true,
+                { algorithm: "HS256"}
+            )
+            user = User.find(decoded_token[0]["user_id"])
+            name = user.name == user_params[:name] ? user.name : user_params[:name]
+            email = user.email == user_params[:email] ? user.email : user_params[:email]
+            params[:subs].each do |sub|
+                topic = Topic.find_by(title: sub)
+                if !user.subscriptions.pluck(:topic_id).include?(topic.id)
+                    Subscription.create(user: user, topic: topic)
+                end
+            end
+            render json: {
+                user: {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    username: user.username
+                },
+                token: token
+            }
+        end
+    end
+
 private
 
     def user_params
-        params.permit(:username, :email, :name, :password)
+        params.permit(:username, :email, :name, :password, :subs)
     end
 
 end
