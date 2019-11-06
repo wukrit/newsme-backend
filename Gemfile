@@ -41,7 +41,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-<<<<<<< HEAD
 # RestClient Gem for making HTTP and REST requests
 gem 'rest-client'
 
@@ -62,21 +61,15 @@ gem 'dotenv-rails'
 
 # News-API
 gem "news-api", "~> 0.2.0"
-=======
+
 # Gem to manage ENV vars
 gem 'dotenv'
 
 # News API Gem
 gem 'news-api'
-<<<<<<< HEAD
->>>>>>> 0a98988... added env files
-=======
 
 # Aylien Text Analysis
 gem "aylien_text_api", "~> 1.0"
-<<<<<<< HEAD
->>>>>>> c820d22... bundled
-=======
 
 gem "prettier", "~> 0.15.0"
->>>>>>> e443966... updated seeds file
+
