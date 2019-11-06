@@ -53,20 +53,11 @@ gem 'rspec-rails'
 # Pry gem for debugging
 gem 'pry'
 
-# Some code formatting
-gem 'prettier'
-
 # Gem for ENV Vars
 gem 'dotenv-rails'
 
 # News-API
 gem "news-api", "~> 0.2.0"
-
-# Gem to manage ENV vars
-gem 'dotenv'
-
-# News API Gem
-gem 'news-api'
 
 # Aylien Text Analysis
 gem "aylien_text_api", "~> 1.0"
