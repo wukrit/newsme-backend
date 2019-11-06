@@ -1,0 +1,13 @@
+current directory: /Users/sukritwalia/projects/mod-5-capstone/newsme-backend/vendor/bundle/ruby/2.6.0/gems/json-2.2.0/ext/json
+/Users/sukritwalia/.rvm/rubies/ruby-2.6.1/bin/ruby -I /Users/sukritwalia/.rvm/rubies/ruby-2.6.1/lib/ruby/site_ruby/2.6.0 -r ./siteconf20191106-52539-npp3lg.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sukritwalia/projects/mod-5-capstone/newsme-backend/vendor/bundle/ruby/2.6.0/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/sukritwalia/projects/mod-5-capstone/newsme-backend/vendor/bundle/ruby/2.6.0/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/sukritwalia/projects/mod-5-capstone/newsme-backend/vendor/bundle/ruby/2.6.0/gems/json-2.2.0/ext/json
+make "DESTDIR=" install
