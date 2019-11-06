@@ -14,6 +14,10 @@ class Article < ApplicationRecord
   end
 =======
     belongs_to :topic
+<<<<<<< HEAD
     belongs_to :source
 >>>>>>> 41855c2... Created relationships
+=======
+    belongs_to :news_source
+>>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
 end

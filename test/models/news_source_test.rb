@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SourcesControllerTest < ActionDispatch::IntegrationTest
+class NewsSourceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_30_190348) do
+=======
+ActiveRecord::Schema.define(version: 2019_11_01_145228) do
+
+>>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -44,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "topic_id"
-    t.bigint "source_id"
-    t.index ["source_id"], name: "index_articles_on_source_id"
+    t.bigint "news_source_id"
+    t.index ["news_source_id"], name: "index_articles_on_news_source_id"
     t.index ["topic_id"], name: "index_articles_on_topic_id"
   end
 
@@ -53,17 +58,32 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.bigint "source_id"
-    t.index ["source_id"], name: "index_filters_on_source_id"
+    t.bigint "news_source_id"
+    t.index ["news_source_id"], name: "index_filters_on_news_source_id"
     t.index ["user_id"], name: "index_filters_on_user_id"
 >>>>>>> 41855c2... Created relationships
   end
 
+<<<<<<< HEAD
   create_table 'sources', force: :cascade do |t|
     t.string 'name'
     t.string 'url'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+=======
+  create_table "news_sources", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+>>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
   end
 
 <<<<<<< HEAD
@@ -101,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key 'articles', 'sources'
   add_foreign_key 'articles', 'topics'
   add_foreign_key 'filters', 'sources'
@@ -109,8 +130,11 @@ ActiveRecord::Schema.define(version: 2019_10_30_190348) do
   add_foreign_key 'subscriptions', 'users'
 =======
   add_foreign_key "articles", "sources"
+=======
+  add_foreign_key "articles", "news_sources"
+>>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
   add_foreign_key "articles", "topics"
-  add_foreign_key "filters", "sources"
+  add_foreign_key "filters", "news_sources"
   add_foreign_key "filters", "users"
   add_foreign_key "subscriptions", "topics"
   add_foreign_key "subscriptions", "users"
