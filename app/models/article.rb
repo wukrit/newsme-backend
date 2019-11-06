@@ -19,5 +19,19 @@ class Article < ApplicationRecord
 >>>>>>> 41855c2... Created relationships
 =======
     belongs_to :news_source
+<<<<<<< HEAD
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
+=======
+
+    require 'news-api'
+
+  def self.get_top_headlines(category)
+    newsapi = News.new(ENV['news_api_key'])
+    top_headlines =
+      newsapi.get_top_headlines(
+        category: category, language: 'en', country: 'us'
+      )
+  end
+
+>>>>>>> 27f5bf6... added headline helper
 end
