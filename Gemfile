@@ -67,4 +67,10 @@ gem 'dotenv'
 
 # News API Gem
 gem 'news-api'
+<<<<<<< HEAD
 >>>>>>> 0a98988... added env files
+=======
+
+# Aylien Text Analysis
+gem "aylien_text_api", "~> 1.0"
+>>>>>>> c820d22... bundled

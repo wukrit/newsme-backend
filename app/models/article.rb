@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
 <<<<<<< HEAD
+<<<<<<< HEAD
   belongs_to :topic
   belongs_to :source
 
@@ -22,8 +23,13 @@ class Article < ApplicationRecord
 <<<<<<< HEAD
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
 =======
+=======
+  belongs_to :topic
+  belongs_to :news_source
+>>>>>>> c820d22... bundled
 
-    require 'news-api'
+  require 'news-api'
+  require 'aylien_text_api'
 
   def self.get_top_headlines(category)
     newsapi = News.new(ENV['news_api_key'])
@@ -33,5 +39,17 @@ class Article < ApplicationRecord
       )
   end
 
+<<<<<<< HEAD
 >>>>>>> 27f5bf6... added headline helper
+=======
+  def self.summarize(url)
+    textapi = AylienTextApi::Client.new(
+      app_id: ENV['text_api_id'], app_key: ENV['text_api_key']
+    )
+    # byebug
+    result = textapi.summarize url: url, sentences_number: 5
+    result
+  end
+
+>>>>>>> c820d22... bundled
 end
