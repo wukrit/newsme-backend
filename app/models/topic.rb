@@ -1,5 +1,6 @@
 class Topic < ApplicationRecord
 <<<<<<< HEAD
+<<<<<<< HEAD
   has_many :subscriptions
   has_many :articles
   has_many :users, through: :subscriptions
@@ -16,6 +17,12 @@ class Topic < ApplicationRecord
 <<<<<<< HEAD
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
 =======
+=======
+    has_many :subscriptions
+    has_many :users, through: :subscriptions
+    has_many :articles
+    has_many :news_sources, through: :articles
+>>>>>>> development
 
     def self.list
         ['Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'General']
@@ -58,5 +65,8 @@ class Topic < ApplicationRecord
         end
     end
 
+<<<<<<< HEAD
 >>>>>>> 9972055... Added serve method for topic instances
+=======
+>>>>>>> development
 end

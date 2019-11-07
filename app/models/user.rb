@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   has_many :filters, dependent: :delete_all
   has_many :subscriptions, dependent: :delete_all
   has_many :topics, through: :subscriptions
@@ -16,21 +17,29 @@ class User < ApplicationRecord
     has_many :sources, through: :filters
 >>>>>>> 41855c2... Created relationships
 =======
+=======
+>>>>>>> development
     has_many :subscriptions, dependent: :destroy
     has_many :topics, through: :subscriptions
     has_many :filters, dependent: :destroy
     has_many :news_sources, through: :filters
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
 =======
+=======
+>>>>>>> development
 
     has_secure_password
 
     # validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 9ff699b... added secure password created login controller
 =======
+=======
+>>>>>>> development
 
     def serve
         feed = {}
@@ -40,5 +49,8 @@ class User < ApplicationRecord
         feed
     end
 
+<<<<<<< HEAD
 >>>>>>> 0dfbceb... added serve feed for users
+=======
+>>>>>>> development
 end

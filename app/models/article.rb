@@ -2,17 +2,25 @@ class Article < ApplicationRecord
 <<<<<<< HEAD
 <<<<<<< HEAD
   belongs_to :topic
-  belongs_to :source
+  belongs_to :news_source
+
+  validates :headline, presence: true, uniqueness: true
 
   require 'news-api'
+  require 'aylien_text_api'
+  require 'date'
 
   def self.get_top_headlines(category)
-    newsapi = News.new(ENV['news_api_key'])
+    news_api_key= Rails.application.credentials.news_api_key
+    newsapi = News.new(news_api_key)
     top_headlines =
       newsapi.get_top_headlines(
-        category: category, language: 'en', country: 'us'
+        category: category,
+        language: 'en',
+        country: 'us'
       )
   end
+<<<<<<< HEAD
 =======
     belongs_to :topic
 <<<<<<< HEAD
@@ -53,6 +61,10 @@ class Article < ApplicationRecord
 =======
   def summarize
 >>>>>>> 9972055... Added serve method for topic instances
+=======
+
+  def summarize
+>>>>>>> development
     text_api_key= Rails.application.credentials.text_api_key
     text_api_id= Rails.application.credentials.text_api_id
     textapi = AylienTextApi::Client.new(
@@ -74,8 +86,11 @@ class Article < ApplicationRecord
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> c820d22... bundled
 =======
+=======
+>>>>>>> development
   def self.get_date(article_obj)
     date = Date.parse(article_obj.publishedAt)
     date.to_s
@@ -91,5 +106,8 @@ class Article < ApplicationRecord
         topic: topic
     )
   end
+<<<<<<< HEAD
 >>>>>>> e443966... updated seeds file
+=======
+>>>>>>> development
 end

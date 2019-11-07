@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Filter.destroy_all
 Subscription.destroy_all
 User.destroy_all
@@ -91,3 +92,7 @@ end
 =======
 Topic.run_daily
 >>>>>>> 9972055... Added serve method for topic instances
+=======
+
+Topic.run_daily
+>>>>>>> development

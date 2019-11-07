@@ -1,6 +1,7 @@
 class Subscription < ApplicationRecord
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   belongs_to :user, dependent: :destroy
   belongs_to :topic, dependent: :destroy
 =======
@@ -11,4 +12,8 @@ class Subscription < ApplicationRecord
     belongs_to :user
     belongs_to :topic
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
+=======
+    belongs_to :user
+    belongs_to :topic
+>>>>>>> development
 end

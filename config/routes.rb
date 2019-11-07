@@ -10,11 +10,17 @@ Rails.application.routes.draw do
   get '/login', to: 'login#persist'
 
   get '/topics/serve', to: 'topics#serve'
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
   get '/users/feed', to: 'users#feed'
   get '/users/subscriptions', to: 'users#subscriptions'
   patch '/users/edit', to: 'users#edit'
   get '/users/delete', to: 'users#delete_account'
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

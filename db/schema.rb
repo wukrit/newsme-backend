@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_30_190348) do
 =======
 ActiveRecord::Schema.define(version: 2019_11_01_145228) do
@@ -54,6 +55,26 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
     t.index ["topic_id"], name: "index_articles_on_topic_id"
   end
 
+=======
+ActiveRecord::Schema.define(version: 2019_11_01_145228) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension 'plpgsql'
+
+  create_table "articles", force: :cascade do |t|
+    t.string "headline"
+    t.string "body"
+    t.string "url"
+    t.string "sentiment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "topic_id"
+    t.bigint "news_source_id"
+    t.index ["news_source_id"], name: "index_articles_on_news_source_id"
+    t.index ["topic_id"], name: "index_articles_on_topic_id"
+  end
+
+>>>>>>> development
   create_table "filters", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,7 +82,17 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
     t.bigint "news_source_id"
     t.index ["news_source_id"], name: "index_filters_on_news_source_id"
     t.index ["user_id"], name: "index_filters_on_user_id"
+<<<<<<< HEAD
 >>>>>>> 41855c2... Created relationships
+=======
+  end
+
+  create_table "news_sources", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+>>>>>>> development
   end
 
 <<<<<<< HEAD
@@ -87,6 +118,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   create_table 'subscriptions', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -95,6 +127,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
     t.index %w[topic_id], name: 'index_subscriptions_on_topic_id'
     t.index %w[user_id], name: 'index_subscriptions_on_user_id'
 =======
+=======
+>>>>>>> development
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -102,7 +136,10 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
     t.bigint "topic_id"
     t.index ["topic_id"], name: "index_subscriptions_on_topic_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
+<<<<<<< HEAD
 >>>>>>> 41855c2... Created relationships
+=======
+>>>>>>> development
   end
 
   create_table 'topics', force: :cascade do |t|
@@ -122,6 +159,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key 'articles', 'sources'
   add_foreign_key 'articles', 'topics'
   add_foreign_key 'filters', 'sources'
@@ -133,10 +171,16 @@ ActiveRecord::Schema.define(version: 2019_11_01_145228) do
 =======
   add_foreign_key "articles", "news_sources"
 >>>>>>> daa9ce2... Rebuilt migrations to account for reserved words
+=======
+  add_foreign_key "articles", "news_sources"
+>>>>>>> development
   add_foreign_key "articles", "topics"
   add_foreign_key "filters", "news_sources"
   add_foreign_key "filters", "users"
   add_foreign_key "subscriptions", "topics"
   add_foreign_key "subscriptions", "users"
+<<<<<<< HEAD
 >>>>>>> 41855c2... Created relationships
+=======
+>>>>>>> development
 end
