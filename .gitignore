@@ -9,7 +9,11 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
+/tmp/pids/*
+/tmp/sockets/*
+/tmp/.keep
+/tmp/development_secret.txt
+/tmp/restart.txt
 !/log/.keep
 !/tmp/.keep
 
@@ -21,8 +25,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-<<<<<<< HEAD
-# Ignore ENV vars
-=======
->>>>>>> 0a98988... added env files
 .env
