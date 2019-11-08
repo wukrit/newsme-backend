@@ -118,8 +118,7 @@ class UsersController < ApplicationController
     end
 
     def check_email
-        user = User.find_by(email: user_params[:email])
-        if user
+        if User.exists?(email: user_params[:email])
             render json: { available: false}
         else
             render json: { available: true }
