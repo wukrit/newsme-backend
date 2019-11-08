@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get '/users/subscriptions', to: 'users#subscriptions'
   patch '/users/edit', to: 'users#edit'
   get '/users/delete', to: 'users#delete_account'
-  get '/users/check_email', to: 'users#check_email'
+  post '/users/check_email', to: 'users#check_email'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
