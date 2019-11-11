@@ -17,6 +17,10 @@ class User < ApplicationRecord
         feed
     end
 
+    def send_newsletter
+        UserMailer.with(user: self).newsletter.deliver_now
+    end
+
     def self.send_newsletters
         User.all.each do |user|
             UserMailer.with(user: user).newsletter.deliver_now
