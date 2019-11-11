@@ -2,7 +2,7 @@
 <% @newsletter.each do |topic| %>
   <div class='card'>
     <header class='card-header'>
-      <p class='card-header-title'><%= topic[0] %></p>
+      <h2 class='card-header-title'><%= topic[0] %></p>
     </header>
     <div class='card-content'>
       <% if topic[1].size == 0 %>
