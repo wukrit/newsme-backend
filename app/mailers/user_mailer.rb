@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
   def send_newsletter(user)
     @newsletter = user.serve
     @user = user
-    mail to: user.email
+    mail to: user.email,
       subject: "Your Newsfeed For #{Date.today.to_s}"
   end
 
