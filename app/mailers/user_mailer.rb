@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def newsletter
     @user = params[:user]
     @newsletter = @user.serve
-    mail (to: user.email, subject: "Your Newsfeed For #{Date.today.to_s}"
+    mail (to: user.email, subject: "Your Newsfeed For #{Date.today.to_s}")
   end
 
 end
