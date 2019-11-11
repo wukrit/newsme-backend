@@ -1,4 +1,4 @@
-<h1>Test Email</h1>
+<h1>Good morning, <%= @user.name %>!</h1>
 <% @newsletter.each do |topic| %>
   <h2><%= topic[0] %></h2>
   <% topic[1].each do |article| %>

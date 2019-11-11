@@ -1,1 +1,12 @@
-<%= @user.name %>
+Good morning, <%= @user.name %>!
+===================================
+<% @newsletter.each do |topic| %>
+
+  <%= topic[0] %>
+-----------------------------------
+  <% topic[1].each do |article| %>
+    <%= article.headline %>
+      <%= article.body %>
+  <% end %>
+
+<% end %>
