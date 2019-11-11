@@ -64,7 +64,7 @@ Rails.application.configure do
     address:              'smtp.mail.yahoo.com',
     port:                 587,
     domain:               'yahoo.com',
-    user_name:            'newsmedaily',
+    user_name:            'newsmedaily@yahoo.com',
     password:             Rails.application.credentials.mail_pass,
     authentication:       'plain',
     enable_starttls_auto: true
