@@ -4,9 +4,12 @@ Good morning, <%= @user.name %>!
 
   <%= topic[0] %>
 -----------------------------------
-  <% topic[1].each do |article| %>
-    <%= article.headline %>
-      <%= article.body %>
+  <% if topic[1].size == 0 %>
+    No breaking news in this topic today!
+  <% else %>
+    <% topic[1].each do |article| %>
+      <%= article.headline %>
+        <%= article.body %>
+    <% end %>
   <% end %>
-
 <% end %>
