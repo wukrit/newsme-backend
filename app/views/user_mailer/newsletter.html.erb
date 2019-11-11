@@ -1,2 +1,10 @@
 <h1>Test Email</h1>
-<%= @user.name %>
+<% @newsletter.each do |topic| %>
+  <h2><%= topic[0] %></h2>
+  <% topic[1].each do |article| %>
+    <h3> <%= article.headline %> </h3>
+    <p>
+      <%= article.body %>
+    </p>
+  <% end %>
+<% end %>
