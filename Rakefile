@@ -4,3 +4,12 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+
+namespace :newsletter do
+  desc "Manages newsletter and subs"
+
+  task :send_daily => :environment do
+    User.send_newsletters
+  end
+end
