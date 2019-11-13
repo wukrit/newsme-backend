@@ -13,3 +13,11 @@ namespace :newsletter do
     User.send_newsletters
   end
 end
+
+namepace :ping do
+  desc "keep heroku server up"
+
+  task :server => :environment do
+    puts "ping"
+  end
+end
