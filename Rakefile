@@ -14,7 +14,7 @@ namespace :newsletter do
   end
 end
 
-namepace :ping do
+namespace :ping do
   desc "keep heroku server up"
 
   task :server => :environment do
