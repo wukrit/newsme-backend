@@ -74,7 +74,7 @@ class Article < ApplicationRecord
     if self.date === Date.today.to_s
       result = textapi.summarize url: self.url, sentences_number: 5
       if result[:sentences].count > 2
-        self.update(body: result[:sentences].join(" "))
+        self.update(body: result[:sentences].join("\n"))
         return true
       else
         puts "Could not summarize properly from #{self.url}"

@@ -19,8 +19,12 @@ Rails.application.routes.draw do
   patch '/users/edit', to: 'users#edit'
   get '/users/delete', to: 'users#delete_account'
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> development
+=======
+  post '/users/check_email', to: 'users#check_email'
+>>>>>>> deployment
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

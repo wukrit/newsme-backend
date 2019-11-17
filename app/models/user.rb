@@ -32,7 +32,6 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    # validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -50,7 +49,19 @@ class User < ApplicationRecord
     end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0dfbceb... added serve feed for users
 =======
 >>>>>>> development
+=======
+    def send_newsletter
+        UserMailer.with(user: self).newsletter.deliver_now
+    end
+
+    def self.send_newsletters
+        User.all.each do |user|
+            UserMailer.with(user: user).newsletter.deliver_now
+        end
+    end
+>>>>>>> deployment
 end

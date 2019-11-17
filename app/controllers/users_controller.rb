@@ -1,30 +1,21 @@
 class UsersController < ApplicationController
 
     def create
-        if (User.find_by(email: user_params[:email]))
-            user = User.find_by(email: user_params[:email])
-            if user && user.authenticate(user_params[:password])
-                payload = { user_id: user.id }
-                token = JWT.encode(payload, secret, 'HS256')
-                render json: {
-                    user: {
-                        id: user.id,
-                        name: user.name,
-                        email: user.email,
-                        username: user.username
-                    },
-                    token: token
-                }
+        user = User.create(email: user_params[:email], name: user_params[:name], password: user_params[:password])
+        if user.valid?
+            payload = { user_id: user.id }
+            token = JWT.encode(payload, secret, 'HS256')
+            params[:subs].each do |sub|
+                topic = Topic.find_by(title: sub[0])
+                if user.subscriptions.pluck(:topic_id).include?(topic.id) && sub[1] == false
+                    user.subscriptions.find_by(topic_id: topic.id).destroy
+                elsif !user.subscriptions.pluck(:topic_id).include?(topic.id) && sub[1] == true
+                    Subscription.create(user: user, topic: topic)
+                end
             end
+            render json: {user: user, token: token}
         else
-            user = User.create(user_params)
-            if user.valid?
-                payload = { user_id: user.id }
-                token = JWT.encode(payload, secret, 'HS256')
-                render json: {user: user, token: token}
-            else
-                render json: {errors: user.errors.full_messages}
-            end
+            render json: {errors: user.errors.full_messages}
         end
     end
 
@@ -106,6 +97,14 @@ class UsersController < ApplicationController
             )
             user = User.find(decoded_token[0]["user_id"])
             user.destroy
+        end
+    end
+
+    def check_email
+        if User.exists?(email: user_params[:email])
+            render json: { available: false}
+        else
+            render json: { available: true }
         end
     end
 
