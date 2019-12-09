@@ -10,7 +10,9 @@ Good morning, <%= @user.name %>!
     <% topic[1].each do |article| %>
       <%= article.headline %>
         <% article.body.split("\n").map do |sentence| %>
+            <% if sentence != "" && sentence.upcase != sentence %>
             - <%= sentence %>
+            <% end %>
         <% end%>
     <% end %>
   <% end %>

@@ -12,9 +12,11 @@
         <h3> <a href="<%=article.url%>"><%= article.headline %></a> </h3>
         <p>
           <% article.body.split("\n").map do |sentence| %>
+            <% if sentence != "" && sentence.upcase != sentence %>
             <li>
               <%= sentence %>
             </li>
+            <% end %>
           <% end%>
           <a href="https://twitter.com/intent/tweet?text=<%=article.headline.split(" ").join("%20")%>&url=<%=article.url%>">Tweet</a>
         </p>
