@@ -24,12 +24,14 @@
             </li>
             <% end %>
           <% end%>
+          <li style="list-style-type:none;">
           <a href="https://twitter.com/intent/tweet?text=<%=article.headline.split(" ").join("%20")%>&url=<%=article.url%>">
             <img
               style="height:32px;width:32px;"
               src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
               alt="Tweet this article">
           </a>
+          </li>
         </p>
       <% end %>
     </div>
