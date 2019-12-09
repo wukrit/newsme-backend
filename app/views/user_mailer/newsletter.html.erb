@@ -11,7 +11,11 @@
         <% topic[1].each do |article| %>
         <h3> <%= article.headline %> </h3>
         <p>
-          <%= article.body %>
+          <% article.body.split("\n").map do |sentence| %>
+            <li>
+              <%= sentence %>
+            <li>
+          <% end%>
         </p>
       <% end %>
     </div>
