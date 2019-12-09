@@ -9,7 +9,12 @@
         <p>No breaking news in this topic today!</p>
       <% else %>
         <% topic[1].each do |article| %>
-        <h3> <a href="<%=article.url%>"><%= article.headline %></a> </h3>
+        <h3
+          style="
+            text-decoration:none;
+            color:black;
+          "> <a href="<%=article.url%>"><%= article.headline %></a>
+        </h3>
         <p>
           <% article.body.split("\n").map do |sentence| %>
             <% if sentence != "" && sentence.upcase != sentence %>
@@ -18,7 +23,12 @@
             </li>
             <% end %>
           <% end%>
-          <a href="https://twitter.com/intent/tweet?text=<%=article.headline.split(" ").join("%20")%>&url=<%=article.url%>">Tweet</a>
+          <a href="https://twitter.com/intent/tweet?text=<%=article.headline.split(" ").join("%20")%>&url=<%=article.url%>">
+            <img
+              style="height:32px;width:32px;"
+              src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
+              alt="Tweet this article">
+          </a>
         </p>
       <% end %>
     </div>
