@@ -10,11 +10,15 @@
         <p>No breaking news in this topic today!</p>
       <% else %>
         <% topic[1].each do |article| %>
-        <h3
+        <h3>
+        <a
+          href="<%=article.url%>"
           style="
             text-decoration:none;
             color:black;
-          "> <a href="<%=article.url%>"><%= article.headline %></a>
+          ">
+          <%= article.headline %>
+        </a>
         </h3>
         <p>
           <% article.body.split("\n").map do |sentence| %>
