@@ -41,7 +41,7 @@ class Topic < ApplicationRecord
 
     def serve
         self.articles.select do |article|
-            article.body != nil && article.date == Date.yesterday.change(:offset => "-0500").to_s
+            article.body != nil && article.date == Date.yesterday.to_s
         end
     end
 
