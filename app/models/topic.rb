@@ -39,10 +39,11 @@ class Topic < ApplicationRecord
         puts "#{i} / #{self.articles.count} Articles Summarized"
     end
 
-    # change date back to yesterday when done testing
     def serve
+        # Testing articles from 2 days prior
+        date = Date.yesterday - 1
         self.articles.select do |article|
-            article.body != nil && article.date == Date.today.to_s
+            article.body != nil && article.date == date.to_s
         end
     end
 
