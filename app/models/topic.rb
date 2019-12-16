@@ -40,7 +40,7 @@ class Topic < ApplicationRecord
     end
 
     def serve
-        date = Date.yesterday - 2
+        date = Date.yesterday
         self.articles.select do |article|
             article.body != nil && article.date == date.to_s
         end
