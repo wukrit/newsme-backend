@@ -1,0 +1,20 @@
+<h1 class='title'>Good morning, <%= @user.name %>!</h1>
+<% @newsletter.each do |topic| %>
+  <div class='card'>
+    <header class='card-header'>
+      <h2 class='card-header-title'><%= topic[0] %></p>
+    </header>
+    <div class='card-content'>
+      <% if topic[1].size == 0 %>
+        <p>No breaking news in this topic today!</p>
+      <% else %>
+        <% topic[1].each do |article| %>
+        <h3> <%= article.headline %> </h3>
+        <p>
+          <%= article.body %>
+        </p>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
