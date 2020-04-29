@@ -12,18 +12,14 @@ class Topic < ApplicationRecord
         categories = self.list
         categories.each do |category|
             new_articles = 0
-            if !Topic.pluck(:title).include?(category)
-                Topic.create(title: category)
-            end
+            Topic.create(title: category) unless Topic.pluck(:title).include?(category)
             topic = Topic.find_by(title: category)
             json = Article.get_top_headlines(category.downcase)
             json.each do |article|
-                if article.id != nil && !NewsSource.pluck(:name).include?(article.name)
-                    NewsSource.create(name: article.name)
-                    Article.creator(article, topic).valid? ? new_articles += 1 : nil
-                elsif article.id != nil && NewsSource.pluck(:name).include?(article.name)
-                    Article.creator(article, topic).valid? ? new_articles += 1 : nil
-                end
+                next if article.id == nil
+
+                NewsSource.create(name: article.name) unless NewsSource.pluck(:name).include?(article.name)
+                Article.creator(article, topic).valid? ? new_articles += 1 : nil
             end
             puts "#{new_articles} New Articles Added in #{category}"
             topic.summarize(4)
