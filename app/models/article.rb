@@ -26,16 +26,14 @@ class Article < ApplicationRecord
       app_id: text_api_id,
       app_key: text_api_key
     )
-    if self.date === Date.today.to_s
-      result = textapi.summarize url: self.url, sentences_number: 5
-      if result[:sentences].count > 2
-        self.update(body: result[:sentences].join("\n"))
-        return true
-      else
-        puts "Could not summarize properly from #{self.url}"
-        return false
-      end
+    return false unless self.date === Date.today.to_s
+
+    result = textapi.summarize url: self.url, sentences_number: 5
+    if result[:sentences].count > 2
+      self.update(body: result[:sentences].join(" "))
+      return true
     else
+      puts "Could not summarize properly from #{self.url}"
       return false
     end
   end
