@@ -5,7 +5,7 @@ FactoryBot.define do
     end
     url { "https://somenewswebsite.com" }
     body { "sentence 1 \n sentence 2 \n sentence 3" }
-    date { Date.today.to_s }
+    date { Date.yesterday.to_s }
     topic
     news_source
   end
