@@ -9,35 +9,25 @@ class Article < ApplicationRecord
   require 'date'
 
   def self.get_top_headlines(category)
-    news_api_key= Rails.application.credentials.news_api_key
-    newsapi = News.new(news_api_key)
-    top_headlines =
-      newsapi.get_top_headlines(
-        category: category,
-        language: 'en',
-        country: 'us'
-      )
+    newsapi = News.new(Rails.application.credentials.news_api_key)
+
+    newsapi.get_top_headlines(
+      category: category,
+      language: 'en',
+      country: 'us'
+    )
   end
 
   def summarize
-    text_api_key= Rails.application.credentials.text_api_key
-    text_api_id= Rails.application.credentials.text_api_id
+    return false if date != Date.today.to_s
+
     textapi = AylienTextApi::Client.new(
-      app_id: text_api_id,
-      app_key: text_api_key
+      app_id: Rails.application.credentials.text_api_id,
+      app_key: Rails.application.credentials.text_api_key
     )
-    if self.date === Date.today.to_s
-      result = textapi.summarize url: self.url, sentences_number: 5
-      if result[:sentences].count > 2
-        self.update(body: result[:sentences].join("\n"))
-        return true
-      else
-        puts "Could not summarize properly from #{self.url}"
-        return false
-      end
-    else
-      return false
-    end
+
+    result = textapi.summarize url: self.url, sentences_number: 5
+    self.update(body: result[:sentences].join("\n")) if result[:sentences].count > 2
   end
 
   def self.get_date(article_obj)
