@@ -35,7 +35,7 @@ React hooks as well as Redux are utilized in order to manage stateful logic and 
     bundle install
     run rails db:create to create your postgres database
     run rails db:migrate to bring up migrations
-    run rails db:seed to seed data for shops and items
+    run rails db:seed to seed data
     run rails s to start the server
 
 Make sure to checkout the repo for the frontend and follow the installation instructions as well.
