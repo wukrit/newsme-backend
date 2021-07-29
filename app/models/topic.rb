@@ -5,7 +5,7 @@ class Topic < ApplicationRecord
   has_many :news_sources, through: :articles
 
   def self.list
-    ['Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'General']
+    %w[Business Entertainment Health Science Sports Technology General]
   end
 
   def self.run_daily
